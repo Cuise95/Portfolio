@@ -1,0 +1,30 @@
+nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 85px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000000;
+    padding: 0 15rem 0 15rem;
+}
+
+.width-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.links {
+    display: flex;
+    gap: 60px;
+    a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+    a:hover {
+        color: #FA2759;
+    }
+}
