@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+body,html {
+    margin: 0;
+    padding: 0;
+}
+
+@import "~aos/dist/aos.css";
+
+@font-face {
+    font-family: 'Inter';
+    font-weight: 500;
+    src: url('assets/fonts/Inter/static/Inter-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-weight: 700;
+    src: url('assets/fonts/Inter/static/Inter-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'Inter';
+    font-weight: 600;
+    src: url('assets/fonts/Inter/static/Inter-SemiBold.ttf');
+}

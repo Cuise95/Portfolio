@@ -7,24 +7,27 @@ nav {
     justify-content: space-between;
     align-items: center;
     background-color: #000000;
-    padding: 0 15rem 0 15rem;
-}
-
-.width-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 80%;
+    padding: 0 25rem 0 25rem;
 }
 
 .links {
     display: flex;
     gap: 60px;
     a {
+        font-family: 'Inter';
+        font-weight: 600;
         color: #ffffff;
         text-decoration: none;
     }
     a:hover {
-        color: #FA2759;
+        color: rgb(255, 118, 33);
+        transition-duration: 125ms;
     }
 }
+
+@media (max-height: 800px) {
+    nav {
+        padding: 0 10rem;
+    }
+} 
+

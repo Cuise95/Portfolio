@@ -1,16 +1,46 @@
 <div class="container">
 
+    <div id="animationDiv" data-aos="fade-down">
+        <div class="headlineAndLogo">
+            <div id="imgTemplateMobile"></div>
 
-    <div class="headlineAndLogo">
-        <p>Hi, <br>
-            I'm <span id="name">Paul Block</span> <br>
-            Frontend develop<span id="letter">e</span>r
-        </p>
+            <p>Hi, <br>
+                I'm <span id="name">Paul Block</span> <br>
+                Frontend develop<span id="letter">e</span>r
+            </p>
 
-        <div id="imgTemplate"></div>
+            <div id="imgTemplateDesktop"></div>
+        </div>
+
+        <svg class="filter" xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <defs>
+                <filter id="gooey">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+                    <feColorMatrix in="blur" type="matrix" values="
+                    1 0 0 0 0 
+                    0 1 0 0 0 
+                    0 0 1 0 0
+                    0 0 0 19 -9
+                    " result="highContrestGraphic" />
+                    <feComposite in="SourceGraphic" in2="highContrestGraphic" operator="atop" />
+                </filter>
+            </defs>
+        </svg> <button id="gooey-button" (click)="scrollToForm()">
+            Contact me
+            <span class="bubbles">
+                <span class="bubble"></span>
+                <span class="bubble"></span>
+                <span class="bubble"></span>
+                <span class="bubble"></span>
+                <span class="bubble"></span>
+                <span class="bubble"></span>
+                <span class="bubble"></span>
+                <span class="bubble"></span>
+                <span class="bubble"></span>
+                <span class="bubble"></span>
+            </span>
+        </button>
+
+        <a id="scrollBtn" (click)="scrollToSkills()"><img src="assets/img/scrollBtn.png" alt=""></a>
     </div>
-
-    <button>Contact me</button>
-
-    <a id="scrollBtn" href=""><img src="assets/img/scrollBtn.png" alt=""></a>
 </div>
