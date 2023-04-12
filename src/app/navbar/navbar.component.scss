@@ -1,13 +1,9 @@
 nav {
-    position: absolute;
-    left: 0;
-    right: 0;
-    height: 85px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #000000;
-    padding: 0 25rem 0 25rem;
+    padding: 0 400px 0 400px;
 }
 
 .links {
@@ -23,6 +19,12 @@ nav {
         color: rgb(255, 118, 33);
         transition-duration: 125ms;
     }
+}
+
+@media (max-width: 1550px) {
+   nav {
+        padding: 0 100px;
+   }
 }
 
 @media (max-height: 800px) {

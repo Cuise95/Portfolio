@@ -1,5 +1,5 @@
 .container {
-    padding: 5rem 26.3rem 5rem 26.3rem;
+    padding: 80px 420px;
     background-color: black;
     display: flex;
     flex-direction: column;
@@ -84,17 +84,19 @@
 
 @media (max-width: 1000px) {
     .container {
-        width: 100%!important;
-        padding: 0 3.4rem;
+        // padding: 0 55px;
 
         div {
             width: 100%;
+
+            form {
+                width: 100% !important;
+            
+            }
         }
     }
 
-    form {
-        width: 100% !important;
-    }
+    
 }
 
 @media (max-height: 800px) {
