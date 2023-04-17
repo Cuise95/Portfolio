@@ -25,10 +25,7 @@ export class ContactMeComponent implements OnInit {
   }
 
   onFormSubmit(event: Event): void {
-    // Verhindert das Standardverhalten (Seiteneffekt) beim Absenden des Formulars
     event.preventDefault();
-
-    // Fügen Sie hier Ihren Code hinzu, um die Formulardaten zu verarbeiten
   }
  
   closePopUp() {

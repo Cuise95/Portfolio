@@ -1,14 +1,24 @@
 <nav>
     <div class="logo">
-        <a href="index.html">
-            <img src="assets/img/BlackAndWhiteLogo.png" alt="">
+        <a routerLink="/">
+            <img src="assets/img/BlackAndWhiteLogo.png" alt="Logo">
         </a>
     </div>
 
-    <div class="links">
-        <!-- How to define an a tag in angular, no HREF -->
-        <a href="">HOME</a>
-        <a href="">ABOUT</a>
-        <a href="">PORTFOLIO</a>
+    <div id="desktopLinks" class="links">
+        <a href="" (click)="scrollToElement('home', $event)">HOME</a>
+        <a href="" (click)="scrollToElement('about', $event)">ABOUT</a>
+        <a href="" (click)="scrollToElement('portfolio', $event)">PORTFOLIO</a>
+    </div>
+
+    <div id="mobileLinks" (click)="toggleMobileMenu()">
+        <img src="assets/img/Menu_icon.png" alt="Menu icon">
+    </div>
+
+    <div id="mobileMenu" [ngClass]="{'show-menu': showMobileMenu}">
+        <span (click)="toggleMobileMenu()">x</span>
+        <a href="" (click)="scrollToElementMobile('home', $event)">HOME</a>
+        <a href="" (click)="scrollToElementMobile('about', $event)">ABOUT</a>
+        <a href="" (click)="scrollToElementMobile('portfolio', $event)">PORTFOLIO</a>
     </div>
 </nav>
