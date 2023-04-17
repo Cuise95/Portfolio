@@ -202,3 +202,9 @@ svg {
         justify-content: center;
     }
 }
+
+@media (max-width: 860px) {
+    .container {
+        padding: 20px 10px;
+    }
+}
