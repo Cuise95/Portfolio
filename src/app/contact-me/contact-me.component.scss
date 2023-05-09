@@ -1,23 +1,24 @@
 .container {
     padding: 80px 420px;
-    background-color: black;
+    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
 
     div {
         width: 50%;
-        margin-bottom: 2rem;
+        margin-bottom: 32px;
     }
 
      #headline {
+        display: flex;
         font-size: 64px;
         font-weight: 600;
-        color: #ff7621;
+        color: #2A3647;
      }
 
      p {
-        color: white;
+        color: #2A3647;
         font-size: 20px;
      }
 
@@ -25,45 +26,59 @@
         width: 50%;
         display: flex;
         flex-direction: column;
-        color: white;
+        color: #2A3647;
 
 
         span {
             font-size: 18px;
-            margin: 1rem 0;
+            margin: 16px 0;
+            color: #2A3647;
         }
 
         input {
             height: 30px;
-            background-color: #1A1A1A;
+            background-color: white;
             border: none;
-            color: white;
-            padding: .5rem;
+            border-bottom: 2px solid #2A3647;
+            color: #2A3647;
+            padding: 8px;
         }
 
         textarea {
-            background-color: #1A1A1A;
-            color: white;
-            padding: .5rem;
+            background-color: white;
+            color: #2A3647;
+            padding: 8px;
             border: none;
+            border-bottom: 2px solid #2A3647;
+            font-family: 'Inter';
+            resize: none;
         }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border: 1px solid #2A3647;
+            border-radius: 10px;
+            box-shadow: 0 0 5px #2A3647;
+            transition: border 125ms, box-shadow 125ms;
+          }
 
         button {
             align-self: flex-end;
-            margin-top: 1rem;
+            margin-top: 16px;
             width: 150px;
             height: 50px;
             background-color: transparent;
-            color: #ff7621;
-            border: 2px solid #ff7621;
+            color: #2A3647;
+            border: 2px solid #2A3647;
             border-radius: 10px;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
+            transition: all 125ms ease-in-out;
 
             &:hover {
-                background-color: #ff7621;
-                color: black;
+                background-color: #2A3647;
+                color: white;
             }
         }
      }
@@ -109,4 +124,20 @@
             form {
                 width: 100% !important;
             }
+}
+
+@media (max-width: 900px) {
+    .container {
+        padding: 20px 10px!important;
+    }
+
+    #headline {
+        text-align: center;
+    }
+}
+
+@media (max-width: 2000px) {
+    .container {
+        padding: 80px 120px;
+    }
 }

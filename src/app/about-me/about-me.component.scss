@@ -1,6 +1,6 @@
 .container {
     padding: 80px 420px;
-    background-color: #131111;
+    background-color: rgba(211, 211, 211, 0.17);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,8 +15,8 @@
     #imgTemplate {
         width: 200px;
         height: 200px;
-        margin-right: 20px;
-        background-color: #ff7621;
+        margin-right: 160px;
+        background-color: #2A3647;
         border-radius: 50%;
     }
 
@@ -24,17 +24,17 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        color: white;
+        color: #2A3647;
 
         span {
-            font-size: 32px;
+            font-size: 64px;
             font-weight: 600;
         }
 
         p {
             font-size: 20px;
             width: 50ch;
-            line-height: 1.8rem;
+            line-height: 28px;
         }
     }
 }
@@ -42,18 +42,18 @@
 
 
 #line {
-    margin: 5rem 0;
+    margin: 80px 0;
     width: 55%;
     height: 1px;
-    background-color: #ff7621;
+    background-color: #2A3647;
 }
 
 .flex-row-second {
-    margin-top: 2rem;
+    margin-top: 32px;
     width: 100%;
     display: flex;
     justify-content: center;
-    color: white;
+    color: black;
     gap: 80px;
   
         .myStory {
@@ -67,12 +67,8 @@
                 justify-content: center;
                 width: 100px;
                 height: 100px;
-                background-color: #ff7621;
+                background-color: #2A3647;
                 border-radius: 50%;
-
-                img {
-                
-                }
             }
 
             h2 {
@@ -83,21 +79,29 @@
                 font-size: 20px;
                 max-width: 45ch;
                 text-align: center;
-                line-height: 1.8rem;
+                line-height: 28px;
             }
         
         }
 }
 
-@media (max-width: 860px) {
+.white {
+    filter: invert(1) brightness(2);;
+}
+
+@media (max-width: 900px) {
     .container {
-        padding: 20px 10px;
+        padding: 20px 10px !important;
     }
 
     .flex-row {
         p {
             width: 30ch !important;
         }
+    }
+
+    .flex-row-second {
+        gap: 40px;
     }
 }
 
@@ -125,4 +129,10 @@
     flex-wrap: wrap;
     min-width: 45ch;
    }
+}
+
+@media (max-width: 2000px) {
+    .container {
+        padding: 80px 120px;
+    }
 }

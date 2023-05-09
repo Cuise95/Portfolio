@@ -1,4 +1,4 @@
-<div class="container" id="formComponent">
+<!-- <div class="container" id="formComponent">
 
     <div data-aos="fade-down">
         <span id="headline">Contact me.</span>
@@ -15,6 +15,29 @@
             #messageField></textarea>
 
         <button type="submit" (click)="popup.openPopup()" #sendButton>Send</button>
+    </form>
+
+    <app-email-pop-up #popup></app-email-pop-up>
+
+</div> -->
+
+<div class="container" id="formComponent">
+
+    <div data-aos="fade-down">
+        <span id="headline">Contact me.</span>
+        <p>Get in touch via the form below, or by emailing hello@paul.com</p>
+    </div>
+
+    <form (submit)="sendMail()" ngNativeValidate data-aos="fade-down" #myForm>
+        <span>Name</span>
+        <input required name="name" type="text" placeholder="Enter your name" #nameField>
+        <span>Email address</span>
+        <input required type="email" #emailField placeholder="Enter your Email address">
+        <span>Message</span>
+        <textarea required name="message" id="" cols="30" rows="10" placeholder="Enter your message"
+            #messageField></textarea>
+
+        <button type="submit" #sendButton>Send</button>
     </form>
 
     <app-email-pop-up #popup></app-email-pop-up>

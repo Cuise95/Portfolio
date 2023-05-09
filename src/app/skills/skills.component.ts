@@ -15,4 +15,14 @@ export class SkillsComponent implements OnInit {
       duration: 2000
     });
   }
+
+  scrollToForm() {
+    const targetElement = document.getElementById('formComponent');
+
+    if(targetElement) {
+      targetElement.scrollIntoView({behavior:'smooth'})
+    }
+  }
+
+  
 }

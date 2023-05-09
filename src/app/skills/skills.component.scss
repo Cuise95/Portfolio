@@ -1,45 +1,59 @@
 .container {
+    position: relative;
     padding: 80px 420px;
-    background-color: #131111;;
+    background-color: #d3d3d32b;
+}
 
-
-    span {
-        font-size: 32px;
-        font-weight: 600;
-        color: white;
-        margin-bottom: 3rem;
-    }
-
+span {
+    font-size: 64px;
+    font-weight: 600;
+    font-family: 'Inter';
+    text-align: center;
+    color: #2A3647;
+    margin-bottom: 48px;
+    min-width: 270px;
 }
 
 #animationDiv {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    flex-direction: column;
 }
 
-.imgContainer { 
+.imgContainer {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 40%;
-    margin-top: 2rem;
+    margin-top: 32px;
+    width: 50%;
+    gap: 80px 80px;
+    min-width: 260px;
 
-    img {
-        padding: 0 1.5rem 4rem 1.5rem;
+    .bounceEffect {
+        transition: transform 0.4s ease-in-out;
     }
+    
+    .bounceEffect:hover {
+        animation: bounceEffect 0.4s;
+        cursor: pointer;
+    }
+
 }
 
-.bounceEffect {
-    transition: transform 0.4s ease-out;
+.linkContainer {
+    display: flex;
+    gap: 50px;    
+
+        a:hover {
+            scale: 1.1;
+            cursor: pointer;
+        }
 }
 
-.bounceEffect:hover {
-    animation: bounceEffect 0.4s;
-    transition-duration: 125ms;
-    transition-delay: 0.3s;
-    cursor: pointer;
+.colorChanged {
+    filter: invert(1) brightness(0.6) sepia(1) hue-rotate(210deg) saturate(4);
 }
 
 @keyframes bounceEffect {
@@ -54,21 +68,41 @@
     }
 }
 
-@media (max-height: 800px) {
-    .imgContainer {
-        width: 100%;
-    }
-}
+// @media (max-width: 1860px) {
+//     .imgContainer {
+//         width: 100%;
+//         gap: 100px 100px;
+//     }
+// }
 
-@media (max-width: 1000px) {
+// @media (max-height: 800px) {
+//     .imgContainer {
+//         width: 100%;
+//     }
+// }
 
-    .imgContainer {
-        width: 100%;
-    }
-}
+// @media (max-width: 1000px) {
+//     .imgContainer {
+//         width: 100%;
+//     }
+// }
 
-@media (max-width: 860px) {
+@media (max-width: 900px) {
     .container {
-        padding: 20px 10px;
+        padding: 20px 10px !important;
+    }
+
+    span {
+        margin-bottom: 0;
+    }
+
+    .imgContainer {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 2000px) {
+    .container {
+        padding: 80px 120px;
     }
 }
