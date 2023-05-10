@@ -1,7 +1,7 @@
 .container {
     position: relative;
     padding: 80px 420px;
-    background-color: #d3d3d32b;
+    background-color: #d3d3d320;
 }
 
 span {
@@ -67,25 +67,6 @@ span {
         transform: translateY(0);
     }
 }
-
-// @media (max-width: 1860px) {
-//     .imgContainer {
-//         width: 100%;
-//         gap: 100px 100px;
-//     }
-// }
-
-// @media (max-height: 800px) {
-//     .imgContainer {
-//         width: 100%;
-//     }
-// }
-
-// @media (max-width: 1000px) {
-//     .imgContainer {
-//         width: 100%;
-//     }
-// }
 
 @media (max-width: 900px) {
     .container {

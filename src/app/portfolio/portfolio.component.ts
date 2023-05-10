@@ -1,34 +1,85 @@
+// import { Component, OnInit } from '@angular/core';
+// import * as AOS from 'aos';
+
+
+// @Component({
+//   selector: 'app-portfolio',
+//   templateUrl: './portfolio.component.html',
+//   styleUrls: ['./portfolio.component.scss']
+// })
+// export class PortfolioComponent implements OnInit{
+//   showComponent = false; 
+
+//   selectedCategory = 'All';
+//   isActive = false;
+
+//   projects = [
+//     {
+//     title: 'JOIN',
+//     technology: 'Angular'
+//   },
+//   {
+//     title: 'El Pollo Loco',
+//     technology: 'JavaScript'
+//   }
+//   ]   
+
+
+//   constructor() {}
+
+//   ngOnInit() {
+//     this.showComponent = true;
+//     AOS.init({
+//       duration: 2000
+//     });
+//   }
+
+//   selectCategory(category: string) {
+//     this.selectedCategory = category;
+//   }
+
+//  // shows only selected projects
+//  showSelectedProjects(project: any) { { 
+//   return this.selectedCategory === 'All' || this.selectedCategory === project.technology
+//   }
+//  }
+// }
+
 import { Component, OnInit } from '@angular/core';
 import * as AOS from 'aos';
-
 
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss']
 })
-export class PortfolioComponent implements OnInit{
-  showComponent = false; 
-
+export class PortfolioComponent implements OnInit {
   selectedCategory = 'All';
-  isActive = false;
+
+  categories = ['All', 'Angular', 'JavaScript'];
 
   projects = [
     {
-    title: 'JOIN',
-    technology: 'Angular'
-  },
-  {
-    title: 'El Pollo Loco',
-    technology: 'JavaScript'
-  }
-  ]   
-
+      title: 'JOIN',
+      technologies: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
+      description: 'Task manager inspired by the Kanban system. Create and organize tasks using drag and drop functions, assign users and categories.',
+      githubUrl: 'https://github.com/elidegen/join',
+      liveTestUrl: 'https://gruppenarbeit-join-455.developerakademie.net/index/index.html',
+      imageUrl: 'assets/img/JOINMac2.png',
+    },
+    {
+      title: 'El Pollo Loco',
+      technologies: ['JavaScript', 'HTML', 'CSS'],
+      description: 'A simple Jump-and-Run game based on an object-oriented approach. Help Pepe to find coins and tabasco bottles to fight against the killer chicken.',
+      githubUrl: 'https://github.com/Cuise95/El-Pollo-Loco',
+      liveTestUrl: 'https://paul-block.developerakademie.net/El%20Pollo%20Loco/index.html',
+      imageUrl: 'assets/img/ElPolloLocoMac2.png',
+    }
+  ]
 
   constructor() {}
 
   ngOnInit() {
-    this.showComponent = true;
     AOS.init({
       duration: 2000
     });
@@ -38,9 +89,7 @@ export class PortfolioComponent implements OnInit{
     this.selectedCategory = category;
   }
 
- // shows only selected projects
- showSelectedProjects(project: any) { { 
-  return this.selectedCategory === 'All' || this.selectedCategory === project.technology
+  showSelectedProjects(project: any) {
+    return this.selectedCategory === 'All' || project.technologies.includes(this.selectedCategory);
   }
- }
 }

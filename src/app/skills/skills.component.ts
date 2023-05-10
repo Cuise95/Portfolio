@@ -23,6 +23,4 @@ export class SkillsComponent implements OnInit {
       targetElement.scrollIntoView({behavior:'smooth'})
     }
   }
-
-  
 }

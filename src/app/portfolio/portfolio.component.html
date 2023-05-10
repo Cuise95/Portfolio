@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="container">
     <span data-aos="fade-down">Portfolio</span>
 
     <div class="categories" data-aos="fade-down">
@@ -14,8 +14,6 @@
     <div class="flex-coloumn">
         <ng-container *ngFor="let project of projects">
             <div class="padding" *ngIf="showSelectedProjects(project)">
-
-                <!-- Project 1 -->
 
                 <div class="flex-row">
                     <ng-container *ngIf="project.title === 'JOIN'">
@@ -40,7 +38,6 @@
                     </ng-container>
                 </div>
 
-                <!-- Project 2 -->
                 <div class="flex-row">
                     <ng-container *ngIf="project.title === 'El Pollo Loco'">
 
@@ -68,6 +65,48 @@
                 </div>
 
 
+            </div>
+        </ng-container>
+
+
+    </div>
+</div> -->
+
+<div class="container">
+    <span data-aos="fade-down">Portfolio</span>
+
+    <div class="categories" data-aos="fade-down">
+        <button *ngFor="let category of categories" (click)="selectCategory(category)"
+            [ngClass]="{'selected': selectedCategory === category}">
+            {{ category }}
+        </button>
+    </div>
+
+    <div class="flex-coloumn">
+        <ng-container *ngFor="let project of projects">
+            <div class="padding" *ngIf="showSelectedProjects(project)">
+
+                <div class="flex-row">
+
+                    <div class="image-container" data-aos="slide-right">
+                        <img [src]="project.imageUrl" alt="">
+                    </div>
+
+                    <div class="flex-coloumn-text" data-aos="slide-left">
+                        <p>{{ project.title }}</p>
+                        <p>{{ project.technologies.join(' | ') }}</p>
+                        <p>{{ project.description }}</p>
+                        <div class="row">
+                            <a [href]="project.githubUrl" target="_blank" rel="noopener noreferrer">
+                                <button>Github</button>
+                            </a>
+                            <a [href]="project.liveTestUrl" target="_blank">
+                                <button>Live Test</button>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </ng-container>
 

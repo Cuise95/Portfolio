@@ -13,7 +13,22 @@
         color: #2A3647;
         margin-bottom: 80px;
      }
+}
 
+.image-container {
+    display: flex;
+}
+
+.flex-row {
+    display: flex;
+}
+
+.reverse-row {
+    flex-direction: row-reverse;
+}
+
+.regular-row {
+    flex-direction: row;
 }
 
 .categories {
