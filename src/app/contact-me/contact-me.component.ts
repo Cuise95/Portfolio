@@ -52,14 +52,10 @@ export class ContactMeComponent implements OnInit {
       messageField.disabled = true;
       sendButton.disabled = true;
 
-      // animation anzeigen das grad gesendet wird
-
       let formData = new FormData();
       formData.append('name', nameField.value);
       formData.append('email', emailField.value);
       formData.append('message', messageField.value);
-
-      //  senden
 
       await fetch('https://paul-block.developerakademie.net/send_mail/send_mail.php',
       {
@@ -67,14 +63,10 @@ export class ContactMeComponent implements OnInit {
         body: formData
       })
 
-      // Text anzeigen, nachricht gesendet.
-
       nameField.disabled = false;
       emailField.disabled = false;
       messageField.disabled = false;
       sendButton.disabled = false;
-
-      // Felder leeren
 
       nameField.value = "";
       emailField.value = "";
