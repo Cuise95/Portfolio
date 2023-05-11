@@ -42,7 +42,6 @@ export class ContactMeComponent implements OnInit {
 
   async sendMail() {
     if (this.myForm.nativeElement.checkValidity()) {
-      console.log('sending mail', this.myForm)
       let nameField = this.nameField.nativeElement;
       let messageField = this.messageField.nativeElement;
       let emailField = this.emailField.nativeElement;
