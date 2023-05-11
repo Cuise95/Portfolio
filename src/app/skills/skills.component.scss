@@ -37,19 +37,8 @@ span {
     
     .bounceEffect:hover {
         animation: bounceEffect 0.4s;
-        cursor: pointer;
     }
 
-}
-
-.linkContainer {
-    display: flex;
-    gap: 50px;    
-
-        a:hover {
-            scale: 1.1;
-            cursor: pointer;
-        }
 }
 
 .colorChanged {

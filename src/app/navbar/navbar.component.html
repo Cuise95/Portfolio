@@ -1,26 +1,26 @@
 <nav>
     <div class="logo">
         <a routerLink="/">
-            <img src="assets/img/Logov2.png" alt="Logo">
+            <img src="assets/img/PortfolioLogo.png" alt="Logo">
         </a>
     </div>
 
     <div id="desktopLinks" class="links">
-        <a href="" (click)="scrollToElement('home', $event)"> <span>HOME</span> </a>
-        <a href="" (click)="scrollToElement('about', $event)"> <span>ABOUT</span> </a>
-        <a href="" (click)="scrollToElement('portfolio', $event)"> <span>PORTFOLIO</span> </a>
+        <a routerLink="/" (click)="scrollToElement('home', $event)"> <span>HOME</span> </a>
+        <a routerLink="/" (click)="scrollToElement('portfolio', $event)"> <span>PORTFOLIO</span> </a>
+        <a routerLink="/" (click)="scrollToElement('about', $event)"> <span>ABOUT</span> </a>
     </div>
 
     <div id="mobileLinks">
-        <img src="assets/img/Logov2.png" alt="Logo" id="mobileLogo">
+        <img src="assets/img/PortfolioLogo.png" alt="Logo" id="mobileLogo">
         <img (click)="toggleMobileMenu()" src="assets/img/Menu_icon.png" alt="Menu icon" id="mobileMenuIcon"
             class="colorChanged">
     </div>
 
     <div id="mobileMenu" [ngClass]="{'show-menu': showMobileMenu}">
         <span (click)="toggleMobileMenu()">x</span>
-        <a href="" (click)="scrollToElementMobile('home', $event)">HOME</a>
-        <a href="" (click)="scrollToElementMobile('about', $event)">ABOUT</a>
-        <a href="" (click)="scrollToElementMobile('portfolio', $event)">PORTFOLIO</a>
+        <a (click)="scrollToElementMobile('home', $event)">HOME</a>
+        <a (click)="scrollToElementMobile('about', $event)">ABOUT</a>
+        <a (click)="scrollToElementMobile('portfolio', $event)">PORTFOLIO</a>
     </div>
 </nav>

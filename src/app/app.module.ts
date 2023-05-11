@@ -12,6 +12,7 @@ import { FooterComponent } from './footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmailPopUpComponent } from './email-pop-up/email-pop-up.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
 
 
 
@@ -26,6 +27,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ContactMeComponent,
     FooterComponent,
     EmailPopUpComponent,
+    LegalNoticeComponent,
   ],
   imports: [
     BrowserModule,
