@@ -1,120 +1,128 @@
-nav {
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: white;
     padding: 0px 100px 1px 100px;
-}
+    height: 100px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 
-#desktopLinks {
-
-a {
-    position: relative;
-    text-decoration: none;
-  }
-  
-  a span {
-    display: inline-block;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  a span:after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: -100%;
-    width: 100%;
-    height: 1px;
-    background-color: currentColor;
-    transition: left 0.3s ease-in;
-  }
-  
-  a:hover span:after {
-    left: 0;
-  }
-}
-
-.logo img {
-    width: 200px;
-    padding: 5px 0px;
-}
-
-#mobileLinks {
-    display: none;
-
-    &:hover{
-        cursor: pointer;
-    }
-}
-
-.links {
-    display: flex;
-    gap: 60px;
-    a {
-        font-family: 'Inter';
-        font-weight: 600;
-        color: #2A3647;
+    .logo {
+        text-align: center;
         text-decoration: none;
-    }
-    a:hover {
-        color: rgb(67, 178, 247);
-        transition-duration: 125ms;
-    }
-}
-
-
-#mobileMenu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Inter';
-    font-weight: 600;
-    gap: 32px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 999;
- 
+        font-family: 'Space Mono';
+        height: 50px;
+        line-height: 25px;
 
         a {
             text-decoration: none;
-            color: black;
-            cursor: pointer;
-            font-size: 24px;
-            font-weight: 600;
-        }
 
-        span {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            color: white;
-            font-size: 24px;
-            z-index: 999;
-            cursor: pointer;
-            color: black;
+            #name {
+                font-size: 28px;
+                font-weight: bold;
+                letter-spacing: 2px;
+                color: white;
+            }
+
+            #subtext {
+                font-size: 16px;
+                letter-spacing: -1px;
+                color: white;
+            }
         }
-  }
+    }
+
+    #desktopLinks {
+        display: flex;
+        gap: 60px;
+
+            a {
+                position: relative;
+                font-weight: 600;
+                text-decoration: none;
+                cursor: pointer;
+                color: #fff;
+            }
+            
+            a span {
+                display: inline-block;
+                overflow: hidden;
+                position: relative;
+            }
+            
+            a span:after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: -100%;
+                width: 100%;
+                height: 1px;
+                background-color: currentColor;
+                transition: left 255ms ease-in;
+            }
+            
+            a:hover span:after {
+                left: 0;
+            }
+    }
+
+    #mobileNav {
+        display: none;
+
+        &:hover{
+            cursor: pointer;
+        }
+    }
+
+    #mobileMenu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../../assets/img/backgroundPortfolio.png');
+        background-repeat: no-repeat;
+        background-attachment: fixed; 
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Roboto';
+        font-weight: 600;
+        gap: 32px;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        z-index: 999;
+    
+            a {
+                text-decoration: none;
+                color: white;
+                cursor: pointer;
+                font-size: 24px;
+                font-weight: 600;
+            }
+
+            span {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                color: white;
+                font-size: 24px;
+                z-index: 999;
+                cursor: pointer;
+                color: white;
+            }
+    }
   
-  .show-menu {
-    opacity: 1 !important;
-    pointer-events: auto !important;
-  }
-
-  .colorChanged {
-    filter: invert(1) brightness(0.6) sepia(1) hue-rotate(210deg) saturate(4);
+    .show-menu {
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
 }
-  
-@media (max-width: 900px) {
-    nav {
+
+@media (max-width: 950px) {
+    header {
         height: 50px;
     }
 
@@ -123,11 +131,11 @@ a {
     }
 
     #desktopLinks {
-        display: none;
+        display: none !important;
     }
 
-    #mobileLinks {
-        display: flex;
+    #mobileNav {
+        display: flex !important;
         justify-content: space-between;
         align-items: center;
         position: absolute;
@@ -135,20 +143,45 @@ a {
         right: 10px;
         left: 10px;
 
-            #mobileLogo {
-                width: 175px;
-                padding: 5px 0;
-            }
+        #mobileLogo {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-family: 'Roboto';
+            height: 50px;
+            line-height: 20px;
+            
+                #nameMobile {
+                    font-size: 22px;
+                    font-weight: bold;
+                    letter-spacing: 2px;
+                    color: white;
+                }
+            
+                #subtextMobile {
+                    font-size: 14px;
+                    font-weight: bold;
+                    letter-spacing: -1px;
+                    color: white;
+                }
+        }
 
-            #mobileMenuIcon {
-                height: 20px;
-            }
+        #mobileMenuIcon {
+            height: 20px;
+        }
     }
 }
 
-@media (min-width: 2000px) {
-    nav {
-        padding: 0 400px 1px 400px;
+@media (min-width: 1800px) {
+    header {
+        padding: 0 25% 1px 25%;
     }
 }
 
+@media (min-width: 3000px) {
+    header {
+        padding: 80px 30%;
+    }
+};

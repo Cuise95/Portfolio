@@ -7,30 +7,38 @@ import * as AOS from 'aos';
   styleUrls: ['./portfolio.component.scss']
 })
 export class PortfolioComponent implements OnInit {
-  selectedCategory = 'All';
+  selectedTechnology = 'All';
 
-  categories = ['All', 'Angular', 'JavaScript'];
+  technologies = ['All', 'Angular', 'JavaScript'];
 
   projects = [
     {
-      title: 'JOIN',
-      technologies: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Firebase'],
-      description: 'Task manager inspired by the Kanban system. Create and organize tasks using drag and drop functions, assign users and categories.',
-      githubUrl: 'https://github.com/paul-block/Join',
-      liveTestUrl: 'https://gruppenarbeit-join-455.developerakademie.net/index/index.html',
+      title: 'Galaxy Odyssey',
+      technologies: ['JavaScript', 'HTML', 'CSS', 'Firebase'],
+      description: 'Galaxy Odyssey is my own version of a jump and run game developed in object-oriented JavaScript. It includes a competetive Firebase leaderboard. Collect enough diamonds to unlock a unique flight mode to gain some extra points and rank as high as possible!',
+      githubUrl: 'https://github.com/paul-block/Galaxy-Odyssey',
+      liveTestUrl: 'https://paul-block.de/Galaxy-Odyssey/index.html',
+      imageUrl: 'assets/img/GalaxyOdysseyMac2.png',
+    },
+    {
+      title: 'Join',
+      technologies: ['Angular', 'HTML', 'CSS', 'Firebase'],
+      description: 'Experience the simplicity of task management with this Kanban-inspired app. Effortlessly create and sort tasks through drag-and-drop, assign to team members, and categorize for seamless organization.',
+      githubUrl: 'https://github.com/paul-block/Join-Angular',
+      liveTestUrl: 'https://paul-block.de/Join',
       imageUrl: 'assets/img/JOINMac2.png',
     },
     {
-      title: 'El Pollo Loco',
-      technologies: ['JavaScript', 'HTML', 'CSS'],
-      description: 'A simple Jump-and-Run game based on an object-oriented approach. Help Pepe to find coins and tabasco bottles to fight against the killer chicken.',
-      githubUrl: 'https://github.com/paul-block/El-Pollo-Loco',
-      liveTestUrl: 'https://paul-block.developerakademie.net/El%20Pollo%20Loco/index.html',
-      imageUrl: 'assets/img/ElPolloLocoMac2.png',
+      title: 'DABubble',
+      technologies: ['Angular', 'HTML', 'CSS', 'Firebase'],
+      description: 'A dynamic web-based communication platform inspired by Slack. DABubble offers real-time messaging and file sharing, designed with a modern and intuitive user interface.',
+      githubUrl: 'https://github.com/paul-block/DABubble',
+      liveTestUrl: 'https://paul-block.de/DABubble',
+      imageUrl: 'assets/img/DABubble_mac.png',
     }
-  ]
+  ];
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
     AOS.init({
@@ -38,11 +46,11 @@ export class PortfolioComponent implements OnInit {
     });
   }
 
-  selectCategory(category: string) {
-    this.selectedCategory = category;
+  selectCategory(technology: string) {
+    this.selectedTechnology = technology;
   }
 
   showSelectedProjects(project: any) {
-    return this.selectedCategory === 'All' || project.technologies.includes(this.selectedCategory);
+    return this.selectedTechnology === 'All' || project.technologies.includes(this.selectedTechnology);
   }
 }

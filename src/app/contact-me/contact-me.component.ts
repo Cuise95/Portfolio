@@ -1,6 +1,7 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import * as AOS from 'aos';
 import { EmailPopUpComponent } from '../email-pop-up/email-pop-up.component';
+
 
 @Component({
   selector: 'app-contact-me',
@@ -9,75 +10,67 @@ import { EmailPopUpComponent } from '../email-pop-up/email-pop-up.component';
 })
 export class ContactMeComponent implements OnInit {
 
-  showPopUp = false;
-
-  @ViewChild('myForm')
-  myForm!: ElementRef;
-  @ViewChild('nameField')
-  nameField!: ElementRef;
-  @ViewChild('messageField')
-  messageField!: ElementRef;
-  @ViewChild('emailField')
-  emailField!: ElementRef;
-  @ViewChild('sendButton')
-  sendButton!: ElementRef;
+  emailField: string;
+  emailFieldError: boolean = false;
+  nameField: string;
+  nameFieldError: boolean = false;
+  messageField: string;
+  messageFieldError: boolean = false;
   @ViewChild(EmailPopUpComponent)
-  popup!: EmailPopUpComponent;
-
-  show() {
-    this.showPopUp = true;
-  }
-
-  onFormSubmit(event: Event): void {
-    event.preventDefault();
-  }
- 
-  closePopUp() {
-    this.showPopUp = false;
-  }
+  popup: EmailPopUpComponent;
 
   ngOnInit() {
     AOS.init();
   }
 
-  async sendMail() {
-    if (this.myForm.nativeElement.checkValidity()) {
-      let nameField = this.nameField.nativeElement;
-      let messageField = this.messageField.nativeElement;
-      let emailField = this.emailField.nativeElement;
-      let sendButton = this.sendButton.nativeElement;
-      nameField.disabled = true;
-      emailField.disabled = true;
-      messageField.disabled = true;
-      sendButton.disabled = true;
-
-      let formData = new FormData();
-      formData.append('name', nameField.value);
-      formData.append('email', emailField.value);
-      formData.append('message', messageField.value);
-
-      await fetch('https://paul-block.developerakademie.net/send_mail/send_mail.php',
-      {
-        method:'POST',
-        body: formData
+  sendMail(event){﻿
+    event.preventDefault();
+    this.validateForm()
+    if (this.checkForError()) {
+    fetch("https://formspree.io/f/xnqklqbk", {
+        method: "POST",
+        body: new FormData(event.target),
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+      if (response.ok) console.log(response.status)
+    }).then(() => {
+        this.popup.openPopup();
+        setTimeout(() => {
+          this.popup.closePopup();
+        }, 3500);
+        this.clearInputs();
       })
-
-      nameField.disabled = false;
-      emailField.disabled = false;
-      messageField.disabled = false;
-      sendButton.disabled = false;
-
-      nameField.value = "";
-      emailField.value = "";
-      messageField.value = "";
-
-      this.popup.openPopup();
-
-  
-      setTimeout(() => {
-        this.popup.closePopup();
-      }, 3500);
-    }
+      .catch(error => {
+        console.error("Es gab einen Fehler beim Senden der E-Mail:", error);
+      });
+    } else console.log("Es gab einen Fehler beim Senden, überprüfe die Eingabefelder");
   }
 
+  validateForm() {
+    this.nameFieldError = (!this.nameField || this.nameField.length === 0) ? true : false;
+    this.emailFieldError = (!this.emailField || this.emailField.length != 0 && !this.isValidEmail(this.emailField)) ? true : false;
+    this.messageFieldError = (!this.messageField || this.messageField.length === 0) ? true : false;
 }
+
+  checkForError() {
+    if (!this.nameFieldError && !this.emailFieldError && !this.messageFieldError) return true;
+    else return false;
+  }
+
+  clearInputs() {
+    this.nameField = "";
+    this.emailField = "";
+    this.messageField = "";
+  }
+
+  isValidEmail(email: string): boolean {
+    const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    return regex.test(email);
+  }
+}
+
+
+
+

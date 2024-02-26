@@ -1,24 +1,70 @@
-body,html {
-    margin: 0;
-    padding: 0;
-}
-
 @import "~aos/dist/aos.css";
 
 @font-face {
-    font-family: 'Inter';
-    font-weight: 500;
-    src: url('assets/fonts/Inter/static/Inter-Regular.ttf');
+  font-family: "Space Mono";
+  font-weight: 500;
+  src: url("assets/fonts/Space_Mono /SpaceMono-Regular.ttf");
 }
 
 @font-face {
-    font-family: 'Inter';
-    font-weight: 700;
-    src: url('assets/fonts/Inter/static/Inter-Bold.ttf');
+  font-family: "Space Mono";
+  font-weight: 700;
+  src: url("assets/fonts/Space_Mono /SpaceMono-Bold.ttf");
 }
 
 @font-face {
-    font-family: 'Inter';
-    font-weight: 600;
-    src: url('assets/fonts/Inter/static/Inter-SemiBold.ttf');
+  font-family: "Roboto";
+  font-weight: 500;
+  src: url("assets/fonts/Roboto/Roboto-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-weight: 700;
+  src: url("assets/fonts/Roboto/Roboto-Bold.ttf");
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: white rgba(0, 0, 0, 0.95);
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("./assets/img/backgroundPortfolio.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: "Roboto", "arial", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.95);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: white;
+  border-radius: 6px;
+}
+
+@media (min-width: 1800px) {
+  .container {
+    padding: 80px 25% !important;
+  }
+}
+
+@media (min-width: 3000px) {
+  .container {
+    padding: 80px 30% !important;
+  }
 }

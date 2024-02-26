@@ -1,8 +1,10 @@
 <app-navbar></app-navbar>
+<app-scroll-to-top></app-scroll-to-top>
+<app-scroll-down></app-scroll-down>
 <router-outlet></router-outlet>
 <app-home-component id="home" *ngIf="!isLegalNoticePage"></app-home-component>
-<app-skills id="skills" *ngIf="!isLegalNoticePage"></app-skills>
-<app-portfolio id="portfolio" *ngIf="!isLegalNoticePage"></app-portfolio>
 <app-about-me id="about" *ngIf="!isLegalNoticePage"></app-about-me>
+<app-skills-slider *ngIf="!isLegalNoticePage"></app-skills-slider>
+<app-portfolio id="portfolio" *ngIf="!isLegalNoticePage"></app-portfolio>
 <app-contact-me id="contact" *ngIf="!isLegalNoticePage"></app-contact-me>
 <app-footer></app-footer>

@@ -1,22 +1,30 @@
-<div class="container" id="formComponent">
+<div class="container" id="formComponent" data-aos="fade-down" data-aos-duration="900">
 
-    <div data-aos="fade-down">
+    <div id="headlineContainer">
         <span id="headline">Contact me.</span>
-        <p>Get in touch via the form below, or by emailing paulblock.dev@gmail.com
+        <p>If you like my work and want to get in touch, please fill out the form below.
         </p>
     </div>
 
-    <form (submit)="sendMail()" ngNativeValidate data-aos="fade-down" #myForm>
-        <span>Name</span>
-        <input required name="name" type="text" placeholder="Enter your name" #nameField>
-        <span>Email address</span>
-        <input required type="email" #emailField placeholder="Enter your Email address">
-        <span>Message</span>
-        <textarea required name="message" cols="30" rows="10" placeholder="Enter your message" #messageField></textarea>
+    <form (ngSubmit)="sendMail($event)">
+        <div class="row">
+            <label>Name
+                <input required name="name" [(ngModel)]="nameField" placeholder="Enter your name">
+                <span class="formError" *ngIf="nameFieldError">Please enter your name</span>
+            </label>
+            <label>Email address
+                <input required name="email" [(ngModel)]="emailField" placeholder="Enter your Email address">
+                <span class="formError" *ngIf="emailFieldError">Please enter a valid email address</span>
+            </label>
+        </div>
 
-        <button type="submit" #sendButton>Send</button>
+        <label>Message
+            <textarea required name="message" [(ngModel)]="messageField" cols="30" rows="10"
+                placeholder="Enter your message"></textarea>
+            <span class="formError" *ngIf="messageFieldError">Please enter a message</span>
+        </label>
+        <button type="submit">Send</button>
     </form>
-
-    <app-email-pop-up #popup></app-email-pop-up>
+    <app-email-pop-up></app-email-pop-up>
 
 </div>

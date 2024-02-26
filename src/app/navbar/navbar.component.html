@@ -1,26 +1,33 @@
-<nav>
+<header>
     <div class="logo">
         <a routerLink="/">
-            <img src="assets/img/PortfolioLogo.png" alt="Logo">
+            <span id="name">Paul Block <br> <span id="subtext">Frontend Developer</span> </span>
         </a>
     </div>
 
     <div id="desktopLinks" class="links">
-        <a routerLink="/" (click)="scrollToElement('home', $event)"> <span>HOME</span> </a>
-        <a routerLink="/" (click)="scrollToElement('portfolio', $event)"> <span>PORTFOLIO</span> </a>
-        <a routerLink="/" (click)="scrollToElement('about', $event)"> <span>ABOUT</span> </a>
+        <a *ngIf="!isHomePage" routerLink="/" (click)="scrollToElement('home', $event)"> <span>HOME</span> </a>
+        <a *ngIf="!isLegalNoticePage" (click)="scrollToElement('about', $event)"> <span>ABOUT ME</span> </a>
+        <a *ngIf="!isLegalNoticePage" (click)="scrollToElement('skills', $event)"> <span>SKILLS</span></a>
+        <a *ngIf="!isLegalNoticePage" (click)="scrollToElement('portfolio', $event)"> <span>PORTFOLIO</span> </a>
+        <a *ngIf="!isLegalNoticePage" (click)="scrollToElement('contact', $event)"><span>CONTACT ME</span></a>
     </div>
 
-    <div id="mobileLinks">
-        <img src="assets/img/PortfolioLogo.png" alt="Logo" id="mobileLogo">
-        <img (click)="toggleMobileMenu()" src="assets/img/Menu_icon.png" alt="Menu icon" id="mobileMenuIcon"
-            class="colorChanged">
+    <div id="mobileNav">
+        <div id="mobileLogo">
+            <span id="nameMobile">Paul Block <br>
+                <span id="subtextMobile">Frontend Developer</span>
+            </span>
+        </div>
+        <img id="mobileMenuIcon" (click)="toggleMobileMenu()" src="assets/img/Menu_icon.png" alt="Mobile menu icon">
     </div>
 
     <div id="mobileMenu" [ngClass]="{'show-menu': showMobileMenu}">
         <span (click)="toggleMobileMenu()">x</span>
-        <a (click)="scrollToElementMobile('home', $event)">HOME</a>
-        <a (click)="scrollToElementMobile('about', $event)">ABOUT</a>
-        <a (click)="scrollToElementMobile('portfolio', $event)">PORTFOLIO</a>
+        <a *ngIf="!isHomePage" (click)="scrollToElementMobile('home', $event)">HOME</a>
+        <a *ngIf="!isLegalNoticePage" (click)="scrollToElementMobile('about', $event)">ABOUT ME</a>
+        <a *ngIf="!isLegalNoticePage" (click)="scrollToElementMobile('skills', $event)">SKILLS</a>
+        <a *ngIf="!isLegalNoticePage" (click)="scrollToElementMobile('portfolio', $event)">PORTFOLIO</a>
+        <a *ngIf="!isLegalNoticePage" (click)="scrollToElementMobile('contact', $event)">CONTACT ME</a>
     </div>
-</nav>
+</header>

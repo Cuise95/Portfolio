@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, Event, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,11 +8,21 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
   showMobileMenu = false;
+  isLegalNoticePage: boolean;
+  isHomePage: boolean;
+
+  constructor(private router: Router) {
+    this.router.events.subscribe((event: Event) => {
+      if (event instanceof NavigationEnd) {
+        this.isLegalNoticePage = this.router.url === '/legal-notice';
+        this.isHomePage = this.router.url === '/' || this.router.url === '' || this.router.url === '/portfolio';
+      }
+    });
+  }
 
   toggleMobileMenu(): void {
     this.showMobileMenu = !this.showMobileMenu;
   }
-
 
   scrollToElement(elementId: string, event: MouseEvent): void {
     event.preventDefault();
@@ -32,27 +43,3 @@ export class NavbarComponent {
 
 
 
-  // scrollToHome() {
-  //   const targetElement = document.getElementById('home');
-
-  //   if(targetElement) {
-  //     targetElement.scrollIntoView({behavior:'smooth'})
-  //   }
-  // }
-
-  // scrollToAbout() {
-  //   const targetElement = document.getElementById('about');
-
-  //   if(targetElement) {
-  //     targetElement.scrollIntoView({behavior:'smooth'})
-  //   }
-  // }
-
-  // scrollToPortfolio() {
-  //   const targetElement = document.getElementById('portfolio');
-
-  //   if(targetElement) {
-  //     targetElement.scrollIntoView({behavior:'smooth'})
-  //   }
-  // }
-// }

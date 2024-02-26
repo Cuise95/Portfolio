@@ -1,99 +1,129 @@
 .container {
-    padding: 80px 420px;
-    background-color: white;
+    padding: 80px 10% 90px 10%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 
-    div {
+
+    #headlineContainer {
         width: 50%;
         margin-bottom: 32px;
     }
 
      #headline {
         display: flex;
+        font-family: 'Roboto';
         font-size: 64px;
         font-weight: 600;
-        color: #2A3647;
+        color: white;
      }
 
      p {
-        color: #2A3647;
+        color: white;
+        font-family: 'Roboto';
         font-size: 20px;
      }
 
      form {
-        width: 50%;
+        width: 100%;
         display: flex;
         flex-direction: column;
-        color: #2A3647;
+        color: white;
+        font-family: 'Roboto';
 
+        .row {
+            display: flex;
+            justify-content: space-between;
+            box-sizing: border-box;
 
-        span {
+                label {
+                    width: 45%;
+                }
+        }
+
+        label {
             font-size: 18px;
             margin: 16px 0;
-            color: #2A3647;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .formError {
+            color: red;
         }
 
         input {
             height: 30px;
-            background-color: white;
-            border: none;
-            border-bottom: 2px solid #2A3647;
-            color: #2A3647;
+            background-color: transparent;
+            border: 2px solid white;
+            border-radius: 10px;
+            color: white;
+            font-family: 'Roboto';
             padding: 8px;
         }
 
         textarea {
-            background-color: white;
-            color: #2A3647;
+            background-color: transparent;
+            color: white;
             padding: 8px;
-            border: none;
-            border-bottom: 2px solid #2A3647;
-            font-family: 'Inter';
+            border: 2px solid white;
+            border-radius: 10px;
+            font-family: 'Roboto';
             resize: none;
         }
 
         input:focus, textarea:focus {
             outline: none;
-            border: 1px solid #2A3647;
+            border: 2px solid white;
             border-radius: 10px;
-            box-shadow: 0 0 5px #2A3647;
+            box-shadow: 0 0 10px #fff;
             transition: border 125ms, box-shadow 125ms;
           }
 
         button {
+            position: relative;
             align-self: flex-end;
             margin-top: 16px;
             width: 150px;
             height: 50px;
-            background-color: transparent;
-            color: #2A3647;
-            border: 2px solid #2A3647;
             border-radius: 10px;
+            overflow: hidden;
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            padding: 10px 20px;
             font-size: 16px;
             font-weight: 600;
+            font-family: 'Roboto';
+            margin-right: 1rem;
             cursor: pointer;
-            transition: all 125ms ease-in-out;
-
-            &:hover {
-                background-color: #2A3647;
-                color: white;
-            }
-        }
+            outline: none;
+            transition: color 0.3s ease-in;
+          }
+          
+          button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: white;
+            transition: left 0.3s ease;
+            z-index: -1;
+          }
+          
+          button:hover {
+            color: black;
+          }
+          
+          button:hover::before {
+            left: 0;
+          }
      }
-}
-
-@media (max-width: 2000px) {
-    .container {
-                div {
-                    width: 100%;
-                }
-            }
-
-            form {
-                width: 100% !important;
-            }
 }
 
 
@@ -102,7 +132,7 @@
         padding: 20px 100px;
 
         div {
-            width: 100%;
+            width: 100% !important;
 
             form {
                 width: 100% !important;
@@ -110,9 +140,20 @@
             }
         }
     }
-
-    
 }
+
+@media (min-width: 1800px) {
+    .container {
+        padding: 80px 25% 90px 25%;
+    }
+}
+
+@media (min-width: 3000px) {
+    .container {
+        padding: 80px 30% 90px 30%;
+    }
+}
+
 
 @media (max-height: 800px) {
     .container {
@@ -138,6 +179,6 @@
 
 @media (max-width: 2000px) {
     .container {
-        padding: 80px 120px;
+        padding: 80px 120px 90px 120px;
     }
 }

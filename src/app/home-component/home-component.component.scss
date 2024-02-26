@@ -1,83 +1,82 @@
-svg {
-     &.filter {
-         display: none;
- }   
-}
-
 .container {
-    padding: 80px 120px;
-    background-color: #ffffff;
+    padding: 80px 10%;
+    height: calc(100vh - 361px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    #animationDiv {
-        display: flex;
-        flex-direction: column;
-        position: relative;
-    }
+        #content-wrapper {
+            display: flex;
+            flex-direction: column;
+            position: relative;
 
-    .headlineAndLogo {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+            .text-wrapper {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 10px;
+                cursor:default;
 
-    p {
-        margin: 0;
-        font-family: 'Inter';
-        font-weight: bold;
-        font-size: 64px;
-        color: #2A3647;
-        margin-bottom: 64px;
-    
-        #name {
-            color: rgb(67, 178, 247);
-        }
+                .vertical {
+                    color: #fff;
+                    writing-mode: vertical-lr;
+                    letter-spacing: -2px;
+                    rotate: 180deg;
+                    font-size: 64px;
+                    font-weight: 600;
+                    font-family: 'Space Mono';
+                }
 
-        #letter {
-            color: rgb(67, 178, 247);
-        }
-    }
+                p {
+                    color: #fff;
+                    font-family: 'Space Mono';
+                    font-weight: 600;
+                    font-size: 64px;
+                }
 
-    #imgTemplateDesktop {
-        min-width: 350px;
-        min-height: 350px;
-        background-color: #2A3647;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-            img {
-                width: 300px;
-                margin-top: -80px;
+                      .text-animation {
+                        display: flex;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        animation: type 1.5s linear;
+                        color: #fff;
+                        font-size: 32px;
+                      }
+              
+                      @keyframes type {
+                        0% {
+                          width: 0;
+                        }
+                        100% {
+                          width: 100%;
+                        }
+                      }
             }
-    }
 
-    #imgTemplateMobile {
-        display: none;
-        min-width: 200px;
-        min-height: 200px;
-        background-color: #2A3647;
-        border-radius: 50%;
-    }
-    }
-
-    button {
+    svg {
+        &.filter {
+            display: none;
+    }   
+   }
+    
+    #gooey-button {
         position: relative;
         padding: 16px;
         width: 300px;
         height: 60px;
-        background-color: rgb(67, 178, 247);
-        border: 2px solid rgb(67, 178, 247);
-        border-radius: 10px;
-        color: white;
-        font-family: 'Inter';
+        background-color: #fff;
+        border: 2px solid #fff;
+        color: #000;
+        font-family: 'Roboto';
         font-size: 16px;
         font-weight: 600;
         margin-bottom: 160px;
         filter: url('#gooey');
         cursor: pointer;
+        transition: all 125ms linear;
 
         &:hover {
-            color: #2A3647;
+            font-size: 18px;
         }
 
         &:focus {
@@ -92,7 +91,7 @@ svg {
             bottom: 0;
         
             .bubble {
-                background-color: rgb(67, 178, 247);
+                background-color: #fff;
                 border-radius: 100%;
                 position: absolute;
                 top: 0;
@@ -131,8 +130,7 @@ svg {
                 }
               }  
             }
-                }
-            }
+          }
         }
     }
 
@@ -142,80 +140,52 @@ svg {
         left: 50px;
         display: flex;
         gap: 50px;    
+
+            a {
+                transition: all 125ms linear;
+            }
     
             a:hover {
                 scale: 1.1;
                 cursor: pointer;
             }
-    }
-
-    .colorChanged {
-        filter: invert(1) brightness(0.6) sepia(1) hue-rotate(210deg) saturate(4);
-    }
-    
-    #scrollDown {
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        writing-mode: vertical-lr;
-        font-family: 'Inter';
-        font-weight: 600;
-        cursor: pointer;
-        color: #2A3647;
-        animation: scrollDownAnimation 10s infinite ease-in-out;
-    }
-
-    @keyframes scrollDownAnimation {
-        0%, 10%, 30%, 50%, 70%, 90% {
-            transform: translateY(0px);
-            opacity: 1;
         }
-        20%, 40%, 60%, 80%, 100% {
-            transform: translateY(10px);
-            opacity: 1;
+    } 
+}
+
+@media (max-height: 800px) {
+    .container {
+        height: unset;
+    }
+}
+
+@media (max-width: 500px) {
+    .container {
+        padding: 50px 20px;
+        height: calc(100vh - 150px);
+ 
+        .text-wrapper {
+            flex-direction: column;
+
+            p {
+                font-size: 32px !important;
+
+                #name {
+                    min-width: fit-content;
+                }
+            }
+        }
+
+        button {
+            width: unset !important;
+            margin-bottom: 0 !important;
+        }
+    
+        .linkContainer {
+            left: 50% !important;
+            bottom: -50px !important;
+            transform: translateX(-50%);
         }
     }
-
-@media (min-width: 2000px) {
-    .container {
-        padding: 80px 420px;
-    }
 }
 
-@media (min-width: 900px) {
-    :host {
-        display: block;
-        padding-top: 85px;
-    }
-}
-
-@media (max-width: 900px) {
-    #imgTemplateDesktop {
-        display: none !important;
-    }
-
-    .headlineAndLogo {
-        flex-direction: column;
-    }
-    
-    #imgTemplateMobile {
-        display: flex !important;
-    }
-
-    .container {
-        padding: 40px 20px;
-    }
-
-    button {
-        width: unset !important;
-        margin-bottom: 0 !important;
-    }
-
-    #scrollDown {
-        display: none;
-    }
-
-    .linkContainer {
-     display: none;
-    }
-}

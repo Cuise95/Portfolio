@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component } from '@angular/core';
+import { ScrollService } from 'src/service/scroll.service';
+import { animate, style, transition, trigger } from '@angular/animations';
 import * as AOS from 'aos';
 
 @Component({
@@ -7,23 +8,10 @@ import * as AOS from 'aos';
   templateUrl: './home-component.component.html',
   styleUrls: ['./home-component.component.scss']
 })
-export class HomeComponentComponent implements OnInit {
-  constructor() {}
+export class HomeComponentComponent {
+
+  constructor(public scrollService: ScrollService) {}
   
-  ngOnInit() {
-    AOS.init( {
-      duration: 1000
-    });
-  }
-
-  scrollToSkills() {
-    const targetElement = document.getElementById('skillComponent');
-
-    if(targetElement) {
-      targetElement.scrollIntoView({behavior:'smooth'})
-    }
-  }
-
   scrollToForm() {
     const targetElement = document.getElementById('formComponent');
 
