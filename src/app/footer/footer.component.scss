@@ -44,10 +44,17 @@ footer {
             margin: 0 32px;
             cursor: pointer;
             transition: all 125ms linear;
+            height: 35px;
+            width: 35px;
 
             &:hover {
                 scale: 1.1;
             }
+        }
+
+        img:last-of-type {
+            height: 30px;
+            width: 30px;
         }
     }
 }

@@ -1,48 +1,59 @@
 .container {
     padding: 80px 10%;
-    height: calc(100vh - 361px);
+    height: calc(100vh - 360px);
     display: flex;
     align-items: center;
     justify-content: center;
 
-        #content-wrapper {
+        #column {
             display: flex;
             flex-direction: column;
             position: relative;
+            gap: 80px;
 
-            .text-wrapper {
+            #text-wrapper {
                 display: flex;
-                justify-content: space-between;
-                align-items: center;
+                flex-direction: column;
                 gap: 10px;
                 cursor:default;
 
-                .vertical {
-                    color: #fff;
-                    writing-mode: vertical-lr;
-                    letter-spacing: -2px;
-                    rotate: 180deg;
-                    font-size: 64px;
-                    font-weight: 600;
-                    font-family: 'Space Mono';
-                }
-
-                p {
-                    color: #fff;
-                    font-family: 'Space Mono';
-                    font-weight: 600;
-                    font-size: 64px;
-                }
-
-                      .text-animation {
+                      #text-animation {
                         display: flex;
                         white-space: nowrap;
                         overflow: hidden;
                         animation: type 1.5s linear;
                         color: #fff;
-                        font-size: 32px;
+                        font-family: 'Space Mono';
+                        font-weight: bold;
+                        font-size: 100px;
+
+                            p{
+                                margin: 0;
+                            }
                       }
-              
+
+                      #row {
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+
+                        #line {
+                            margin-right: 20px;
+                            width: 60%;
+                            height: 2px;
+                            border-radius: 10px;
+                            border-bottom: 2px solid #fff;
+                          }
+
+                          span {
+                            color: #fff;
+                            white-space: nowrap;
+                            font-family: 'Space Mono';
+                            font-weight: bold;
+                            font-size: 48px;
+                          }
+                      }
+         
                       @keyframes type {
                         0% {
                           width: 0;
@@ -155,7 +166,24 @@
 
 @media (max-height: 800px) {
     .container {
-        height: unset;
+        height: calc(100vh - 180px);
+    }
+}
+
+@media (max-width: 600px) {
+    #text-wrapper {
+
+        #text-animation {
+            font-size: 64px !important;
+        }
+   
+            #row {
+                max-width: calc(100vw - 50px);
+                
+                span {
+                    font-size: 32px !important;
+                }
+            }
     }
 }
 
@@ -163,18 +191,6 @@
     .container {
         padding: 50px 20px;
         height: calc(100vh - 150px);
- 
-        .text-wrapper {
-            flex-direction: column;
-
-            p {
-                font-size: 32px !important;
-
-                #name {
-                    min-width: fit-content;
-                }
-            }
-        }
 
         button {
             width: unset !important;
